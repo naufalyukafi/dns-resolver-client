@@ -23,7 +23,7 @@ export default async function DNSListingPage({ }: DNSListingPage) {
   if (dmarcValid) queryParams.append('dmarcValid', dmarcValid);
   if (limit) queryParams.append('limit', limit.toString());
 
-  const apiUrl = `http://localhost:3001/v1/domains?${queryParams.toString()}`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_REST_API_URL}domains?${queryParams.toString()}`;
 
   const response = await fetch(apiUrl, {
     cache: 'no-store'
